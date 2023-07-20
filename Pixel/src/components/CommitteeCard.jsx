@@ -1,8 +1,10 @@
 import React from "react";
 import "./Card.css";
+import "./loader.css";
 import '/index.js';
 import { getcommittee } from '../apireq/getrequests';
 import { useState,useEffect } from 'react';
+import Loader from "./Loader";
 
 export default function Committee() {
   const [committee, setCommittee] = useState([]);
@@ -16,11 +18,12 @@ export default function Committee() {
          }
        })
      return () => mounted = false;
-   }, [])
+    }, [])
+  
   return (
     <div className="CommHeader">
     <h1 className="CommHeading">Committee Members</h1>
-    <div className="Commcontainer">
+      {committee.length === 0 ? <Loader /> : <div className="Commcontainer">
       {committee?.map((comdata) => (
         <CommitieeCard
           name={comdata.Name}
@@ -30,7 +33,7 @@ export default function Committee() {
           ProfileLink={comdata.ProfileLink}
         />
       ))}
-    </div>
+        </div>}
     </div>
   );
 }
@@ -55,7 +58,7 @@ function CommitieeCard({
         <h2 className="commitiee-title">{name}</h2>
         <div className="card-content">
           <p>{`${Designation} (${Institute})`}</p>
-          <a className="card-link" style={{ color: "#364fc7" }} href={ProfileLink}>
+          <a className="card-link"  href={ProfileLink}>
             Profile Link
           </a>
         </div>

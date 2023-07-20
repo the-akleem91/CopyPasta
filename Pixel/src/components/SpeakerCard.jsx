@@ -3,6 +3,7 @@ import { useState } from "react";
 import "./Card.css";
 import { getspeakers } from '../apireq/getrequests';
 import { useEffect } from 'react';
+import Loader from "./Loader";
 
 export default function SpeakerCard() {
   const [open, isSetOpen] = useState(0);
@@ -28,7 +29,7 @@ export default function SpeakerCard() {
   }
   return (
     <div className="Speakercontainer">
-      {speakers.length &&
+      {speakers.length === 0 ? <Loader/> :
         speakers.map((spdata, i) => (
           <SpeakerInstance>
             <CardDetails
@@ -62,10 +63,11 @@ function CardDetails({ handleClick, person, id }) {
         />
       </div>
       <h2 className="speaker-name">{person.Name}</h2>
+
       <div className="speaker-content">
         <p>
           {person.Designation}
-          <span> ({person.Institute})</span>
+          <span className="card-span"> ({person.Institute})</span>
         </p>
         <button className="btn" onClick={() => handleClick(id)}>
           Know More
@@ -87,10 +89,11 @@ function Modal({ open, handleCloseModal, person, id }) {
           <div className="speaker-card-image ">
             <img className="committie-speaker-card-images" src={person.ImgLink} alt={person.Name} />
           </div>
+
           <h2 className="speaker-name">{person.Name}</h2>
-          <p>
+          <p className="speaker-content">
             {person.Designation}
-            <span> ({person.Institute})</span>
+            <span className="speaker-content"> ({person.Institute})</span>
           </p>
           <PersonDetails person={person} />
         </div>
@@ -106,13 +109,13 @@ function PersonDetails({ person }) {
         Profile Link : <a href={person.ImgLink}>{person.Name}</a>
       </p>
       <p className="modal-titles">
-        Tittle<span> : {person.TalkTitle}</span>
+        Tittle<span className="card-span"> : {person.TalkTitle}</span>
       </p>
       <p className="modal-titles">
-        Abstract : <span>{person.Abstract}</span>
+        Abstract : <span className="card-span">{person.Abstract}</span>
       </p>
       <p className="modal-titles">
-        Bio : <span>{person.Bio}</span>
+        Bio : <span className="card-span">{person.Bio}</span>
       </p>
     </div>
   );

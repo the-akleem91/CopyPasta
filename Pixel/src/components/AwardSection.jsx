@@ -2,6 +2,7 @@ import React from 'react';
 import './AwardSection.css';
 import { getawards } from '../apireq/getrequests';
 import { useState,useEffect } from 'react';
+import Loader from './Loader';
 
 const AwardSection = () => {
   const [awards, setAwards] = useState([]);
@@ -17,11 +18,12 @@ const AwardSection = () => {
      return () => mounted = false;
    }, [])
   return (
+  
     <div className='Majb'>
-    <h1 className="AwardsPHeading">Awards</h1>
+      <h1 className="AwardsPHeading">Awards</h1>      
     <div className='AwardContainer'>
-      
-      {awards.map((adata) => (
+      { awards.length===0 ? <Loader /> :
+      awards.map((adata) => (
         <div className='AwardBox' key={adata.id}>
           <div className='AwardName'>
             

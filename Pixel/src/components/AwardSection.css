@@ -42,10 +42,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  
     width: 40vw;
-    height: 15rem;
-  
+    height: 17rem;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -72,24 +70,27 @@
   }
   
   .Atitle1 {
-    
     font-weight: bolder;
     font-size: x-large;
     color: #ffffff;
-    padding: 0.25rem;
+    padding: 0.1rem;
   }
   
   .Atitle2 {
-    font-weight: bolder;
+    font-weight: bold;
+    font-weight: 600;
     font-size: large;
     color: #ffffff;
     padding: 0.25rem;
   }
   
   .Apara {
+    opacity: 80%;
+    font-size: 1.1rem;
+    margin: 1rem;
     color: #ffffff;
     line-height: 1.5rem;
-    padding: 0.25rem;
+    padding: 0.2rem;
   }
   
   /* Responsive Styles */
