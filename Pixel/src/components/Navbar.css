@@ -84,6 +84,7 @@
     }
 
     .nav-menu.active {
+        position: fixed;
         left: 0;
     }
 

@@ -26,14 +26,16 @@
     flex-wrap: wrap;
     width: 90vw;
     padding: 1rem;
-    margin: 0.75rem;
+    margin: 1rem;
+    margin-bottom: 2.5rem;
     border-radius: 1rem;
-    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+    box-shadow: 0 3px 12px 0 rgba(0,0,0,0.37);
     font-weight: 400;
     background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255,255,255,0.18);
+    animation: ease 0.3s;
 }
 
 .ContactDesc{
@@ -49,7 +51,7 @@
 }
 
 .ContactBox:hover{
-    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.37);
+    box-shadow: 0 4px 24px 0 rgba(0,0,0,0.37);
 }
 
 @media screen and (max-width:900px){

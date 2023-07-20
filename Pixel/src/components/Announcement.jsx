@@ -34,7 +34,7 @@ export default function announcement(){
                 <>
                 <div className="item">
                 <div className="title" onClick={()=> toggle(i)}>
-                    <h2>{andata.title}</h2>
+                    <h2 className='maintitle'>{andata.title}</h2>
                     <span>{selected===i ? '-':'+'}</span>
                 </div>
                 <div className={selected===i ? 'content show':'content'}>
